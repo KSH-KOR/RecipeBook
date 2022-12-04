@@ -37,7 +37,7 @@
 <h1>Add New Recipe</h1>
 <form action="addRecipeOk" method="post">
     <table>
-        <tr><td>Name:</td><td><input type="text" name="name"/></td></tr>
+        <tr><td>Recipe Name:</td><td><input type="text" name="name"/></td></tr>
         <tr><td>Category:</td><td>
             <select name="category">
                 <option value="">category</option>
@@ -49,9 +49,11 @@
             </select>
         </td></tr>
         <tr><td>rating:</td><td><input type="text" name="rating"/></td></tr>
-
         <tr><td>description:</td><td><textarea cols="50" rows="5" name="description"> </textarea></td></tr>
-        <tr><td align="right"><input type="submit" value="Add Recipe"/></td></tr>
+        <tr><td colspan="2">
+            <input type="submit" value="Add Recipe"/>
+            <input type="button" value="Cancel" onclick="history.back()"/>
+        </td></tr>
     </table>
 </form>
 </body>

@@ -18,7 +18,7 @@ public class IngredientController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String ingredientList(@PathVariable("recipeId") int id, Model model){
         model.addAttribute("ingredientList", ingredientService.getPostList(id));
-        return "list";
+        return "ingredientList";
     }
 
     @RequestMapping(value = "/addIngredient", method = RequestMethod.GET)

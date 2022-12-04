@@ -35,7 +35,7 @@ public class IngredientDao {
     private final String BOARD_UPDATE =
             String.format("update %s set %s=?, %s=?, %s=? where %s=?",
                     tableName,
-                    DatabaseFieldName.recipeNameFieldName,
+                    DatabaseFieldName.ingredientNameFieldName,
                     DatabaseFieldName.ingredientUnitFieldName,
                     DatabaseFieldName.ingredientWeightFieldName,
                     DatabaseFieldName.ingredientIdFieldName
@@ -78,16 +78,16 @@ public class IngredientDao {
         return 0;
     }
     public int updateIngredient(Ingredient ingredient) {
-        System.out.println("===> JDBC로 updateBoard() 기능 처리");
+        System.out.println("===> JDBC updateIngredient");
         try {
-            return template.update(BOARD_UPDATE, new Object[]{ingredient.getName(), ingredient.getUnit(), ingredient.getWeight(), ingredient.getRecipeID()});
+            return template.update(BOARD_UPDATE, new Object[]{ingredient.getName(), ingredient.getUnit(), ingredient.getWeight(), ingredient.getIngredientID()});
         } catch (Exception e) {
             e.printStackTrace();
         }
         return 0;
     }
     public Ingredient getIngredient(int ingredientId) {
-        System.out.println("===> JDBC로 getBoard() 기능 처리");
+        System.out.println("===> JDBC getIngredient");
         try {
             return template.queryForObject(BOARD_GET, new Object[]{ingredientId}, new BeanPropertyRowMapper<Ingredient>(Ingredient.class));
         } catch (Exception e) {
@@ -98,7 +98,7 @@ public class IngredientDao {
 
     public List<Ingredient> getIngredientList(int recipeId){
         List<Ingredient> list = new ArrayList<Ingredient>();
-        System.out.println("===> JDBC로 getBoardList() 기능 처리");
+        System.out.println("===> JDBC getIngredientList");
         return template.query(BOARD_LIST, new Object[]{recipeId}, new IngredientRowMapper());
     }
 }

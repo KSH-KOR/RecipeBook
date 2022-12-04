@@ -39,7 +39,7 @@
     <script>
         function delete_ok(id){
             const a = confirm("정말로 삭제하겠습니까?");
-            if(a) location.href='deleteRecipeOk/' + id;
+            if(a) location.href='deleteRecipe/' + id;
         }
     </script>
 </head>
@@ -54,11 +54,12 @@
     <tr>
         <th>Id</th>
         <th>Category</th>
-        <th>Name</th>
+        <th>Recipe Name</th>
         <th>rating</th>
         <th>description</th>
         <th>Regdate</th>
         <th>Editdate</th>
+        <th>ingredient</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
@@ -68,11 +69,10 @@
             <td>${u.category}</td>
             <td>${u.name}</td>
             <td>${u.rating}</td>
-            <td><div style="white-space: pre-line">
-                <c:out value="${u.description}"/>
-            </div> </td>
+            <td>${u.description}</td>
             <td>${u.createdTime}</td>
             <td>${u.lastModifiedTime}</td>
+            <td><a href="${u.recipeID}/ingredient/list">ingredient list</a></td>
             <td><a href="editRecipe/${u.recipeID}">Edit</a></td>
             <td><a href="javascript:delete_ok('${u.recipeID}')">Delete</a></td>
         </tr>

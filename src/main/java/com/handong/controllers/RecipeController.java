@@ -39,18 +39,18 @@ public class RecipeController {
     @RequestMapping(value = "/addRecipeOk", method = RequestMethod.POST)
     public String addRecipeOk(Recipe postModel){
         if(recipeService.insertPost(postModel) == 0){
-            System.out.println("데이터 추가 실패");
+            System.out.println("data create failed");
         } else{
-            System.out.println("데이터 추가 성공");
+            System.out.println("data created successfully");
         }
         return "redirect:list";
     }
     @RequestMapping(value = "/editRecipeOk", method = RequestMethod.POST)
     public String editRecipeOk(Recipe postModel){
         if(recipeService.updatePost(postModel) == 0){
-            System.out.println("데이터 수정 실패");
+            System.out.println("data update failed");
         } else{
-            System.out.println("데이터 수정 성공");
+            System.out.println("data update successfully");
         }
         return "redirect:list";
     }
