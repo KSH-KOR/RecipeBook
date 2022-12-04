@@ -35,7 +35,7 @@
 </head>
 <body>
 <h1>Add New Recipe</h1>
-<form action="/addRecipeOk" method="post">
+<form action="addRecipeOk" method="post">
     <table>
         <tr><td>Name:</td><td><input type="text" name="name"/></td></tr>
         <tr><td>Category:</td><td>
