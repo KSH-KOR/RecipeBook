@@ -37,32 +37,18 @@
 <h1>Add New Recipe</h1>
 <form action="/addRecipeOk" method="post">
     <table>
-        <tr><td>Category:</td><td><select name="category">
-            <option value="">category</option>
-            <option value="korean">korean</option>
-            <option value="western">western</option>
-            <option value="mexican">mexican</option>
-            <option value="japanese">japanese</option>
-            <option value="others">others</option>
-        </select></td></tr>
         <tr><td>Name:</td><td><input type="text" name="name"/></td></tr>
+        <tr><td>Category:</td><td>
+            <select name="category">
+                <option value="">category</option>
+                <option value="korean">korean</option>
+                <option value="western">western</option>
+                <option value="mexican">mexican</option>
+                <option value="japanese">japanese</option>
+                <option value="others">others</option>
+            </select>
+        </td></tr>
         <tr><td>rating:</td><td><input type="text" name="rating"/></td></tr>
-        <tr>
-            <td>Ingredients:</td>
-            <td>
-                <table id="list" width="90%">
-                    <tr>
-                        <th>Name</th>
-                        <th>weight</th>
-                        <th>unit</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                </table>
-                <br/><a href="add">Add New Ingredient</a>
-            </td>
-
-        </tr>
 
         <tr><td>description:</td><td><textarea cols="50" rows="5" name="description"> </textarea></td></tr>
         <tr><td align="right"><input type="submit" value="Add Recipe"/></td></tr>

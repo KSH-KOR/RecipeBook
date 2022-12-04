@@ -13,6 +13,35 @@ public class Ingredient {
     private  String unit;
     private  String weight;
     private  Date createdTime;
+
+    public void setIngredientID(int ingredientID) {
+        this.ingredientID = ingredientID;
+    }
+
+    public void setRecipeID(int recipeID) {
+        this.recipeID = recipeID;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public void setCreatedTime(Date createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public void setLastModifiedTime(Date lastModifiedTime) {
+        this.lastModifiedTime = lastModifiedTime;
+    }
+
     private  Date lastModifiedTime;
 
     public Ingredient(){}

@@ -78,6 +78,6 @@
         </tr>
     </c:forEach>
 </table>
-<br/><a href="/add">Add New Recipe</a>
+<br/><a href="addRecipe">Add New Recipe</a>
 </body>
 </html>

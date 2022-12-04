@@ -18,7 +18,7 @@
   <form:hidden path ="recipeID"/>
   <table id = "edit">
     <tr>
-      <td>종류:</td>
+      <td>category:</td>
       <td><form:select name="category" path="category">
         <option value="">category</option>
         <option value="korean">korean</option>
@@ -30,7 +30,6 @@
     </tr>
     <tr><td>Name:</td><td><form:input path = "name"/></td></tr>
     <tr><td>rating:</td><td><form:input path = "rating"/></td></tr>
-
     <tr><td>description</td><td><form:textarea cols="50" rows ="5" path = "description"/></td></tr>
   </table>
   <input type="submit" value="Edit Recipe"/>

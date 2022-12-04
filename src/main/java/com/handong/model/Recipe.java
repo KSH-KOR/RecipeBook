@@ -6,6 +6,34 @@ import java.sql.SQLException;
 import com.handong.constant.DatabaseFieldName;
 
 public class Recipe {
+    public void setRecipeID(int recipeID) {
+        this.recipeID = recipeID;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCreatedTime(Date createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public void setLastModifiedTime(Date lastModifiedTime) {
+        this.lastModifiedTime = lastModifiedTime;
+    }
+
     private int recipeID;
     private String name;
     private int rating;
