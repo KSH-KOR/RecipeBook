@@ -8,33 +8,33 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class RecipeService implements BoardServiceInterface{
+public class RecipeService implements RecipeServiceInterface {
 
     @Autowired
     RecipeDao recipeDao;
 
     @Override
-    public int insertPost(Object model) {
-        return recipeDao.insertBoard((Recipe) model);
+    public int insertPost(Recipe model) {
+        return recipeDao.insertRecipe(model);
     }
 
     @Override
     public int deletePost(int id) {
-        return recipeDao.deleteBoard(id);
+        return recipeDao.deleteRecipe(id);
     }
 
     @Override
-    public int updatePost(Object model) {
-        return recipeDao.updateBoard((Recipe) model);
+    public int updatePost(Recipe model) {
+        return recipeDao.updateRecipe(model);
     }
 
     @Override
-    public Object getPost(int id) {
-        return recipeDao.getBoard(id);
+    public Recipe getPost(int id) {
+        return recipeDao.getRecipe(id);
     }
 
     @Override
-    public List<Object> getPostList() {
-        return null;
+    public List<Recipe> getPostList() {
+        return recipeDao.getRecipeList();
     }
 }

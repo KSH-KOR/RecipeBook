@@ -2,7 +2,6 @@ package com.handong.dao;
 
 import com.handong.constant.DatabaseFieldName;
 import com.handong.model.Ingredient;
-import com.handong.model.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -51,15 +50,16 @@ public class IngredientDao {
                     DatabaseFieldName.ingredientIdFieldName
             );
     private final String BOARD_LIST =
-            String.format("select * from %s order by %s desc",
+            String.format("select * from %s where %s=? order by %s desc",
                     tableName,
+                    DatabaseFieldName.recipeIdFieldName,
                     DatabaseFieldName.ingredientIdFieldName
             );
 
-    public int insertBoard(Ingredient ingredient) {
+    public int insertIngredient(Ingredient ingredient, int recipeId) {
         System.out.println("===> JDBC로 insertBoard() 기능 처리");
         try {
-            return template.update(BOARD_INSERT, new Object[]{ingredient.getRecipeID(), ingredient.getName(), ingredient.getUnit(), ingredient.getWeight()});
+            return template.update(BOARD_INSERT, new Object[]{recipeId, ingredient.getName(), ingredient.getUnit(), ingredient.getWeight()});
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -67,7 +67,7 @@ public class IngredientDao {
     }
 
     // 글 삭제
-    public int deleteBoard(int ingredientId) {
+    public int deleteIngredient(int ingredientId) {
         System.out.println("===> JDBC로 deleteBoard() 기능 처리");
         try {
             return template.update(BOARD_DELETE, new Object[]{ingredientId});
@@ -76,7 +76,7 @@ public class IngredientDao {
         }
         return 0;
     }
-    public int updateBoard(Ingredient ingredient) {
+    public int updateIngredient(Ingredient ingredient) {
         System.out.println("===> JDBC로 updateBoard() 기능 처리");
         try {
             return template.update(BOARD_UPDATE, new Object[]{ingredient.getName(), ingredient.getUnit(), ingredient.getWeight(), ingredient.getRecipeID()});
@@ -85,7 +85,7 @@ public class IngredientDao {
         }
         return 0;
     }
-    public Ingredient getBoard(int ingredientId) {
+    public Ingredient getIngredient(int ingredientId) {
         System.out.println("===> JDBC로 getBoard() 기능 처리");
         try {
             return template.queryForObject(BOARD_GET, new Object[]{ingredientId}, new BeanPropertyRowMapper<Ingredient>(Ingredient.class));
@@ -95,10 +95,10 @@ public class IngredientDao {
         }
     }
 
-    public List<Ingredient> getBoardList(){
+    public List<Ingredient> getIngredientList(int recipeId){
         List<Ingredient> list = new ArrayList<Ingredient>();
         System.out.println("===> JDBC로 getBoardList() 기능 처리");
-        return template.query(BOARD_LIST, new IngredientRowMapper());
+        return template.query(BOARD_LIST, new Object[]{recipeId}, new IngredientRowMapper());
     }
 }
 
