@@ -2,6 +2,7 @@ package com.handong.dao;
 
 import com.handong.constant.DatabaseFieldName;
 import com.handong.model.Ingredient;
+import com.handong.model.Recipe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;

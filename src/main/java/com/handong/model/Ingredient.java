@@ -7,13 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Ingredient {
-    private final int ingredientID;
-    private final int recipeID;
-    private final String name;
-    private final String unit;
-    private final String weight;
-    private final Date createdTime;
-    private final Date lastModifiedTime;
+    private  int ingredientID;
+    private  int recipeID;
+    private  String name;
+    private  String unit;
+    private  String weight;
+    private  Date createdTime;
+    private  Date lastModifiedTime;
+
+    public Ingredient(){}
 
     public Ingredient(int ingredientID, int recipeID, String name, String unit, String weight, Date createdTime, Date lastModifiedTime) {
         this.ingredientID = ingredientID;

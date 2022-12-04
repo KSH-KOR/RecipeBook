@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: UserK
@@ -5,7 +6,9 @@
   Time: 오후 2:06
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" isELIgnored="false" %>
 <html>
 <head>
     <title>Title</title>
@@ -35,8 +38,8 @@
     </style>
     <script>
         function delete_ok(id){
-            var a = confirm("정말로 삭제하겠습니까?");
-            if(a) location.href='deleteok/' + id;
+            const a = confirm("정말로 삭제하겠습니까?");
+            if(a) location.href='deleteRecipeOk/' + id;
         }
     </script>
 </head>
@@ -54,13 +57,12 @@
         <th>Name</th>
         <th>rating</th>
         <th>description</th>
-        <th>Ingredients</th>
         <th>Regdate</th>
         <th>Editdate</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
-    <c:forEach items="${list}" var="u">
+    <c:forEach items="${recipeList}" var="u">
         <tr>
             <td>${u.recipeID}</td>
             <td>${u.category}</td>
@@ -69,14 +71,13 @@
             <td><div style="white-space: pre-line">
                 <c:out value="${u.description}"/>
             </div> </td>
-            <td>${u.ingredients}</td>
             <td>${u.createdTime}</td>
             <td>${u.lastModifiedTime}</td>
-            <td><a href="editform/${u.getId()}">Edit</a></td>
-            <td><a href="javascript:delete_ok('${u.getId()}')">Delete</a></td>
+            <td><a href="editRecipe/${u.recipeID}">Edit</a></td>
+            <td><a href="javascript:delete_ok('${u.recipeID}')">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
-<br/><a href="add">Add New Recipe</a>
+<br/><a href="/add">Add New Recipe</a>
 </body>
 </html>

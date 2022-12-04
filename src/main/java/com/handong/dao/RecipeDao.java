@@ -99,7 +99,6 @@ public class RecipeDao {
         return template.query(BOARD_LIST, new RecipeRowMapper());
     }
 }
-
 class RecipeRowMapper implements RowMapper<Recipe> {
     @Override
     public Recipe mapRow(ResultSet rs, int i) throws SQLException {

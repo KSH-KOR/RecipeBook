@@ -6,14 +6,15 @@ import java.sql.SQLException;
 import com.handong.constant.DatabaseFieldName;
 
 public class Recipe {
-    private final int recipeID;
-    private final String name;
-    private final int rating;
-    private final String category;
-    private final String description;
-    private final Date createdTime;
-    private final Date lastModifiedTime;
+    private int recipeID;
+    private String name;
+    private int rating;
+    private String category;
+    private String description;
+    private Date createdTime;
+    private Date lastModifiedTime;
 
+    public Recipe(){}
 
     public Recipe(int recipeID, String name, int rating, String category, String description, Date createdTime, Date lastModifiedTime) {
         this.recipeID = recipeID;

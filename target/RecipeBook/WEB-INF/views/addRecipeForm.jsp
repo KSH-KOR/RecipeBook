@@ -35,15 +35,15 @@
 </head>
 <body>
 <h1>Add New Recipe</h1>
-<form action="addok" method="post">
+<form action="/addRecipeOk" method="post">
     <table>
         <tr><td>Category:</td><td><select name="category">
-            <option value="">없음</option>
-            <option value="한식">한식</option>
-            <option value="중식">중식</option>
-            <option value="일식">일식</option>
-            <option value="일식">양식</option>
-            <option value="베트남 음식">베트남 음식</option>
+            <option value="">category</option>
+            <option value="korean">korean</option>
+            <option value="western">western</option>
+            <option value="mexican">mexican</option>
+            <option value="japanese">japanese</option>
+            <option value="others">others</option>
         </select></td></tr>
         <tr><td>Name:</td><td><input type="text" name="name"/></td></tr>
         <tr><td>rating:</td><td><input type="text" name="rating"/></td></tr>
@@ -58,15 +58,6 @@
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
-                    <c:forEach items="${list}" var="u">
-                        <tr>
-                            <td>${u.name}</td>
-                            <td>${u.weight}</td>
-                            <td>${u.unit}</td>
-                            <td><a href="editform/${u.getId()}">Edit</a></td>
-                            <td><a href="javascript:delete_ok('${u.getId()}')">Delete</a></td>
-                        </tr>
-                    </c:forEach>
                 </table>
                 <br/><a href="add">Add New Ingredient</a>
             </td>
