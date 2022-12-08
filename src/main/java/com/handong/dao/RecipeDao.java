@@ -1,6 +1,7 @@
 package com.handong.dao;
 
 import com.handong.model.Recipe;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,49 +17,13 @@ import com.handong.constant.DatabaseFieldName;
 @Repository
 public class RecipeDao {
     @Autowired
-    private JdbcTemplate template;
-    public void setTemplate(JdbcTemplate template){
-        this.template = template;
-    }
+    SqlSession sqlSession;
     final String tableName = "Recipe";
-
-    private final String BOARD_INSERT =
-            String.format("insert into %s (%s, %s, %s, %s) values (?,?,?,?)",
-                    tableName,
-                    DatabaseFieldName.recipeNameFieldName,
-                    DatabaseFieldName.recipeRatingFieldName,
-                    DatabaseFieldName.recipeCategoryFieldName,
-                    DatabaseFieldName.recipeDescriptionFieldName
-            );
-    private final String BOARD_UPDATE =
-            String.format("update %s set %s=?, %s=?, %s=?, %s=? where %s=?",
-                    tableName,
-                    DatabaseFieldName.recipeNameFieldName,
-                    DatabaseFieldName.recipeRatingFieldName,
-                    DatabaseFieldName.recipeCategoryFieldName,
-                    DatabaseFieldName.recipeDescriptionFieldName,
-                    DatabaseFieldName.recipeIdFieldName
-            );
-    private final String BOARD_DELETE =
-            String.format("delete from %s where %s=?",
-                    tableName,
-                    DatabaseFieldName.recipeIdFieldName
-            );
-    private final String BOARD_GET =
-            String.format("select * from %s where %s=?",
-                    tableName,
-                    DatabaseFieldName.recipeIdFieldName
-            );
-    private final String BOARD_LIST =
-            String.format("select * from %s order by %s desc",
-                    tableName,
-                    DatabaseFieldName.recipeIdFieldName
-            );
 
     public int insertRecipe(Recipe recipe) {
         System.out.println("===> JDBC로 insertBoard() 기능 처리");
         try {
-            return template.update(BOARD_INSERT, new Object[]{recipe.getName(), recipe.getRating(), recipe.getCategory(), recipe.getDescription()});
+            return sqlSession.insert("Recipe.insertRecipe", recipe);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -69,7 +34,7 @@ public class RecipeDao {
     public int deleteRecipe(int recipeID) {
         System.out.println("===> JDBC로 deleteBoard() 기능 처리");
         try {
-            return template.update(BOARD_DELETE, new Object[]{recipeID});
+            return sqlSession.delete("Recipe.deleteRecipe");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -78,7 +43,7 @@ public class RecipeDao {
     public int updateRecipe(Recipe recipe) {
         System.out.println("===> JDBC로 updateBoard() 기능 처리");
         try {
-            return template.update(BOARD_UPDATE, new Object[]{recipe.getName(), recipe.getRating(), recipe.getCategory(), recipe.getDescription(), recipe.getRecipeID()});
+            return sqlSession.update("Recipe.updateRecipe", recipe);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -87,7 +52,7 @@ public class RecipeDao {
     public Recipe getRecipe(int recipeId) {
         System.out.println("===> JDBC로 getBoard() 기능 처리");
         try {
-            return template.queryForObject(BOARD_GET, new Object[]{recipeId}, new BeanPropertyRowMapper<Recipe>(Recipe.class));
+            return sqlSession.selectOne("Recipe.getRecipe");
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -96,12 +61,6 @@ public class RecipeDao {
 
     public List<Recipe> getRecipeList(){
         System.out.println("===> JDBC로 getBoardList() 기능 처리");
-        return template.query(BOARD_LIST, new RecipeRowMapper());
-    }
-}
-class RecipeRowMapper implements RowMapper<Recipe> {
-    @Override
-    public Recipe mapRow(ResultSet rs, int i) throws SQLException {
-        return new Recipe(rs);
+        return sqlSession.selectList("Recipe.getRecipeList");
     }
 }

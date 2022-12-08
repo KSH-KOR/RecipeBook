@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Recipe">
+    <insert id="insertRecipe">
+        insert into Ingredient (name, rating, category, description)
+        values
+        (#{name} , #{rating} , #{category} , #{description})
+    </insert>
+    <update id="updateRecipe">
+        update Ingredient
+        set name=#{name}, rating=#{rating}, category=#{category}, description=#{description}
+        where recipeID=#{recipeID}
+    </update>
+    <delete id="deleteRecipe">
+        delete from Ingredient where recipeID=#{recipeID}
+    </delete>
+    <select id="getRecipe" resultType="recipe">
+        select * from Ingredient where recipeID=#{recipeID}
+    </select>
+    <select id="getRecipeList" resultType="recipe">
+        select * from Ingredient order by recipeID desc
+    </select>
+</mapper>
