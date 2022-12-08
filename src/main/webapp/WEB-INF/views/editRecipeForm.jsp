@@ -29,7 +29,22 @@
       </form:select></td>
     </tr>
     <tr><td>Recipe Name:</td><td><form:input path = "name"/></td></tr>
-    <tr><td>rating:</td><td><form:input path = "rating"/></td></tr>
+    <tr><td>rating:</td>
+      <td>
+      <input type="radio" id="contactChoice1"
+                 name="rating" value="1">
+        <label for="contactChoice1">1star</label>
+
+        <input type="radio" id="contactChoice2"
+               name="rating" value="2">
+        <label for="contactChoice2">2star</label>
+
+        <input type="radio" id="contactChoice3"
+               name="rating" value="3">
+        <label for="contactChoice3">3star</label>
+
+      </td>
+    </tr>
     <tr><td>description</td><td><form:textarea cols="50" rows ="5" path = "description"/></td></tr>
     <tr><td colspan="2">
       <input type="submit" value="Edit Recipe"/>
