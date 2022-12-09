@@ -51,7 +51,7 @@ public class RecipeDao {
     public Recipe getRecipe(int recipeId) {
         System.out.println("===> JDBC로 getBoard() 기능 처리");
         try {
-            return sqlSession.selectOne("Recipe.getRecipe");
+            return sqlSession.selectOne("Recipe.getRecipe", recipeId);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
