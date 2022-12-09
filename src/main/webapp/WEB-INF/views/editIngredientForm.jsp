@@ -15,7 +15,7 @@
 <h1>Edit Recipe</h1>
 
 <form:form modelAttribute="editIngredientInfo" method="post" action="../editIngredientOk">
-  <form:hidden path ="ingredientID"/>
+  <form:hidden path ="ingredientId"/>
   <table id = "edit">
     <tr><td>Ingredient Name:</td><td><form:input path="name"/></td></tr>
     <tr><td>Amount:</td><td><form:input path="weight"/></td></tr>

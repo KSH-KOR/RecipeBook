@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="User">
+    <insert id="insertUser">
+        insert into Recipe ( userId, userPassword, userName)
+        values
+        (#{userId}, #{userPassword} , #{userName})
+    </insert>
+    <insert id="updateUser">
+        update Recipe
+        set userId=#{userId}, userPassword=#{userPassword}, userName=#{userName}
+        where memberId=#{memberId}
+    </insert>
+    <delete id="deleteUser">
+        delete from Member where memberId=#{memberId}
+    </delete>
+    <select id="getUser" resultType="user">
+        select userId, userName, regDate, memberId from Member where userId=#{userId} and userPassword=#{password}
+    </select>
+    <select id="getRecipeList" resultType="recipe">
+        select * from Recipe order by recipeID desc
+    </select>
+</mapper>

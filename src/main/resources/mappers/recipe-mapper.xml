@@ -11,13 +11,13 @@
     <update id="updateRecipe">
         update Recipe
         set name=#{name}, rating=#{rating}, category=#{category}, description=#{description}
-        where recipeID=#{recipeID}
+        where recipeID=#{recipeId}
     </update>
     <delete id="deleteRecipe">
-        delete from Recipe where recipeID=#{recipeID}
+        delete from Recipe where recipeID=#{recipeId}
     </delete>
     <select id="getRecipe" resultType="recipe">
-        select * from Recipe where recipeID=#{recipeID}
+        select * from Recipe where recipeID=#{recipeId}
     </select>
     <select id="getRecipeList" resultType="recipe">
         select * from Recipe order by recipeID desc

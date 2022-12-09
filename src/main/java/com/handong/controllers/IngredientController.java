@@ -36,7 +36,8 @@ public class IngredientController {
 
     @RequestMapping(value = "/addIngredientOk", method = RequestMethod.POST)
     public String addIngredientOk(@PathVariable("recipeId") int id, Ingredient ingredient){
-        if(ingredientService.insertPost(ingredient, id) == 0){
+        ingredient.setRecipeId(id);
+        if(ingredientService.insertPost(ingredient) == 0){
             System.out.println("데이터 추가 실패");
         } else{
             System.out.println("데이터 추가 성공");

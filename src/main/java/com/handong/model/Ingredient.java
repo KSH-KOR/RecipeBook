@@ -7,19 +7,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Ingredient {
-    private  int ingredientID;
-    private  int recipeID;
+    private  int ingredientId;
+    private  int recipeId;
     private  String name;
     private  String unit;
     private  String weight;
     private  Date createdTime;
 
-    public void setIngredientID(int ingredientID) {
-        this.ingredientID = ingredientID;
+    public void setIngredientId(int ingredientId) {
+        this.ingredientId = ingredientId;
     }
 
-    public void setRecipeID(int recipeID) {
-        this.recipeID = recipeID;
+    public void setRecipeId(int recipeId) {
+        this.recipeId = recipeId;
     }
 
     public void setName(String name) {
@@ -46,9 +46,9 @@ public class Ingredient {
 
     public Ingredient(){}
 
-    public Ingredient(int ingredientID, int recipeID, String name, String unit, String weight, Date createdTime, Date lastModifiedTime) {
-        this.ingredientID = ingredientID;
-        this.recipeID = recipeID;
+    public Ingredient(int ingredientId, int recipeId, String name, String unit, String weight, Date createdTime, Date lastModifiedTime) {
+        this.ingredientId = ingredientId;
+        this.recipeId = recipeId;
         this.name = name;
         this.unit = unit;
         this.weight = weight;
@@ -56,8 +56,8 @@ public class Ingredient {
         this.lastModifiedTime = lastModifiedTime;
     }
     public Ingredient(ResultSet rs) throws SQLException {
-        this.ingredientID = rs.getInt(DatabaseFieldName.ingredientIdFieldName);;
-        this.recipeID = rs.getInt(DatabaseFieldName.recipeIdFieldName);
+        this.ingredientId = rs.getInt(DatabaseFieldName.ingredientIdFieldName);;
+        this.recipeId = rs.getInt(DatabaseFieldName.recipeIdFieldName);
         this.name = rs.getString(DatabaseFieldName.ingredientNameFieldName);
         this.unit = rs.getString(DatabaseFieldName.ingredientUnitFieldName);;
         this.weight = rs.getString(DatabaseFieldName.ingredientWeightFieldName);;
@@ -65,12 +65,12 @@ public class Ingredient {
         this.lastModifiedTime = rs.getDate(DatabaseFieldName.ingredientLastModifiedTimeFieldName);;
     }
 
-    public int getIngredientID() {
-        return ingredientID;
+    public int getIngredientId() {
+        return ingredientId;
     }
 
-    public int getRecipeID() {
-        return recipeID;
+    public int getRecipeId() {
+        return recipeId;
     }
 
     public String getName() {

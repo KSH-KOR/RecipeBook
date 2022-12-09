@@ -18,7 +18,6 @@ import com.handong.constant.DatabaseFieldName;
 public class RecipeDao {
     @Autowired
     SqlSession sqlSession;
-    final String tableName = "Recipe";
 
     public int insertRecipe(Recipe recipe) {
         System.out.println("===> JDBC로 insertBoard() 기능 처리");
@@ -34,7 +33,7 @@ public class RecipeDao {
     public int deleteRecipe(int recipeID) {
         System.out.println("===> JDBC로 deleteBoard() 기능 처리");
         try {
-            return sqlSession.delete("Recipe.deleteRecipe");
+            return sqlSession.delete("Recipe.deleteRecipe", recipeID);
         } catch (Exception e) {
             e.printStackTrace();
         }

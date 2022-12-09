@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import com.handong.constant.DatabaseFieldName;
 
 public class Recipe {
-    public void setRecipeID(int recipeID) {
-        this.recipeID = recipeID;
+    public void setRecipeId(int recipeId) {
+        this.recipeId = recipeId;
     }
 
     public void setName(String name) {
@@ -34,7 +34,7 @@ public class Recipe {
         this.lastModifiedTime = lastModifiedTime;
     }
 
-    private int recipeID;
+    private int recipeId;
     private String name;
     private int rating;
     private String category;
@@ -44,8 +44,8 @@ public class Recipe {
 
     public Recipe(){}
 
-    public Recipe(int recipeID, String name, int rating, String category, String description, Date createdTime, Date lastModifiedTime) {
-        this.recipeID = recipeID;
+    public Recipe(int recipeId, String name, int rating, String category, String description, Date createdTime, Date lastModifiedTime) {
+        this.recipeId = recipeId;
         this.name = name;
         this.rating = rating;
         this.category = category;
@@ -55,7 +55,7 @@ public class Recipe {
     }
 
     public Recipe(ResultSet rs) throws SQLException {
-        this.recipeID = rs.getInt(DatabaseFieldName.recipeIdFieldName);
+        this.recipeId = rs.getInt(DatabaseFieldName.recipeIdFieldName);
         this.name = rs.getString(DatabaseFieldName.recipeNameFieldName);
         this.rating = rs.getInt(DatabaseFieldName.recipeRatingFieldName);
         this.category = rs.getString(DatabaseFieldName.recipeCategoryFieldName);
@@ -64,8 +64,8 @@ public class Recipe {
         this.lastModifiedTime = rs.getDate(DatabaseFieldName.recipeLastModifiedTimeFieldName);
     }
 
-    public int getRecipeID() {
-        return recipeID;
+    public int getRecipeId() {
+        return recipeId;
     }
 
     public String getName() {

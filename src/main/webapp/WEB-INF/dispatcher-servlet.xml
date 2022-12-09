@@ -17,5 +17,15 @@
         <property name="suffix" value=".jsp"/>
         <property name="prefix" value="/WEB-INF/views/"/>
     </bean>
+    <bean id="loginCheckInterceptor" class="com.handong.util.LoginCheckInterceptor" />
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/resources/**"/>
+            <mvc:exclude-mapping path="/img/**"/>
+            <mvc:exclude-mapping path="/login/**"/>
+            <ref bean="loginCheckInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

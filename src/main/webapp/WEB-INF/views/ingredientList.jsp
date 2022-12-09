@@ -63,14 +63,14 @@
     </tr>
     <c:forEach items="${ingredientList}" var="u">
         <tr>
-            <td>${u.ingredientID}</td>
+            <td>${u.ingredientId}</td>
             <td>${u.name}</td>
             <td>${u.weight}</td>
             <td>${u.unit}</td>
             <td>${u.createdTime}</td>
             <td>${u.lastModifiedTime}</td>
-            <td><a href="editIngredient/${u.ingredientID}">Edit</a></td>
-            <td><a href="javascript:delete_ok('${u.ingredientID}')">Delete</a></td>
+            <td><a href="editIngredient/${u.ingredientId}">Edit</a></td>
+            <td><a href="javascript:delete_ok('${u.ingredientId}')">Delete</a></td>
         </tr>
     </c:forEach>
 </table>

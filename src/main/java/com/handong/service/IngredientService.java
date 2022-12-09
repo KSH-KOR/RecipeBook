@@ -13,8 +13,8 @@ public class IngredientService implements IngredientServiceInterface{
     IngredientDao ingredientDao;
 
     @Override
-    public int insertPost(Ingredient model, int recipeId) {
-        return ingredientDao.insertIngredient(model, recipeId);
+    public int insertPost(Ingredient model) {
+        return ingredientDao.insertIngredient(model);
     }
 
     @Override

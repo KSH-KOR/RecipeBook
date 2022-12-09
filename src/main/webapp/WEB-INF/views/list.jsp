@@ -65,16 +65,16 @@
     </tr>
     <c:forEach items="${recipeList}" var="u">
         <tr>
-            <td>${u.recipeID}</td>
+            <td>${u.recipeId}</td>
             <td>${u.category}</td>
             <td>${u.name}</td>
             <td>${u.rating}</td>
             <td>${u.description}</td>
             <td>${u.createdTime}</td>
             <td>${u.lastModifiedTime}</td>
-            <td><a href="${u.recipeID}/ingredient/list">ingredient list</a></td>
-            <td><a href="editRecipe/${u.recipeID}">Edit</a></td>
-            <td><a href="javascript:delete_ok('${u.recipeID}')">Delete</a></td>
+            <td><a href="${u.recipeId}/ingredient/list">ingredient list</a></td>
+            <td><a href="editRecipe/${u.recipeId}">Edit</a></td>
+            <td><a href="javascript:delete_ok('${u.recipeId}')">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
