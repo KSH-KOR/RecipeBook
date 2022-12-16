@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
 Created-By: IntelliJ IDEA
-Built-By: chzhv
-Build-Jdk: Oracle OpenJDK version 17.0.4
+Built-By: UserK
+Build-Jdk: Amazon Corretto version 17.0.5
 

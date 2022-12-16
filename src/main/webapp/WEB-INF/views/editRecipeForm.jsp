@@ -20,17 +20,18 @@
     <tr>
       <td>category:</td>
       <td><form:select name="category" path="category">
-        <option value="">category</option>
-        <option value="korean">korean</option>
-        <option value="western">western</option>
-        <option value="mexican">mexican</option>
-        <option value="japanese">japanese</option>
-        <option value="others">others</option>
+        <form:option value="">category</form:option>
+        <form:option value="korean">korean</form:option>
+        <form:option value="western">western</form:option>
+        <form:option value="mexican">mexican</form:option>
+        <form:option value="japanese">japanese</form:option>
+        <form:option value="others">others</form:option>
       </form:select></td>
     </tr>
     <tr><td>Recipe Name:</td><td><form:input path = "name"/></td></tr>
     <tr><td>rating:</td>
       <td>
+
       <input type="radio" id="contactChoice1"
                  name="rating" value="1">
         <label for="contactChoice1">1star</label>
@@ -40,7 +41,7 @@
         <label for="contactChoice2">2star</label>
 
         <input type="radio" id="contactChoice3"
-               name="rating" value="3">
+               name="rating" value="3" checked>
         <label for="contactChoice3">3star</label>
 
       </td>
