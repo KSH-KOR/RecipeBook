@@ -9,8 +9,6 @@ public class DatabaseFieldName {
     public static final String recipeCreatedTimeFieldName = "createdTime";
     public static final String recipeLastModifiedTimeFieldName = "lastModifiedTime";
 
-
-
     public static final String ingredientIdFieldName = "ingredientId";
     public static final String ingredientNameFieldName = "name";
     public static final String ingredientUnitFieldName = "unit";

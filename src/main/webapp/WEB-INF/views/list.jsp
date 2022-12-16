@@ -51,6 +51,7 @@
 <%--    request.setAttribute("list",list);--%>
 <%--%>--%>
 <table id="list" width="90%">
+    <td><a href="../login/logout">Logout</a></td>
     <tr>
         <th>Id</th>
         <th>Category</th>
